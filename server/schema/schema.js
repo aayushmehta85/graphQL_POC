@@ -104,7 +104,6 @@ const mutation = new GraphQLObjectType({
 			async resolve(parent, args) {
 				// Retrieve projects associated with the client ID
 				const projects = await Project.find({ clientId: args.id });
-				console.log('projects found', projects);
 				// Use async/await to wait for all projects to be deleted
 				for (let project of projects) {
 					console.log('project found - attempteting to delete', project.name);
